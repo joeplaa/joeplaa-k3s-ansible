@@ -15,7 +15,7 @@
   ansible.builtin.file:
     path: "{{ log_destination }}"
     state: directory
-    mode: "0755"
+    mode: '0755'
 
 - name: Store logs to {{ log_destination }}
   delegate_to: localhost
@@ -23,6 +23,6 @@
   ansible.builtin.template:
     src: content.j2
     dest: "{{ log_destination }}/k3s-init@{{ ansible_hostname }}.log"
-    mode: 0644
+    mode: '0644'
   vars:
     content: "{{ k3s_init_log.stdout }}"
